@@ -136,3 +136,290 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 98ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 2846)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0)[0m
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for ::1 at 2021-01-15 22:28:08 +0530
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 218)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/ikjot-2605/CIMS/project/public/packs
+[Webpacker] Hash: 415a948d492e21802f43
+Version: webpack 4.46.0
+Time: 6158ms
+Built at: 15/01/2021 10:28:25 pm
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-d5a3c3b4dce84b5eb605.js    125 KiB  application  [emitted] [immutable]  application
+js/application-d5a3c3b4dce84b5eb605.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-d5a3c3b4dce84b5eb605.js js/application-d5a3c3b4dce84b5eb605.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 17922.2ms | Allocations: 16639)
+Completed 200 OK in 17989ms (Views: 17957.0ms | ActiveRecord: 0.0ms | Allocations: 19276)
+
+
+Started GET "/" for ::1 at 2021-01-15 22:30:51 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3286)
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 4481)
+
+
+Started GET "/" for ::1 at 2021-01-15 22:30:56 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 122)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 3292)
+Completed 200 OK in 24ms (Views: 21.9ms | ActiveRecord: 0.0ms | Allocations: 4473)
+
+
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from migration_template at (erb):6)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from migration_template at (erb):6)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /home/ikjot-2605/CIMS/project/bin/rails:5)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /home/ikjot-2605/CIMS/project/bin/rails:5)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /home/ikjot-2605/CIMS/project/bin/rails:5)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /home/ikjot-2605/CIMS/project/bin/rails:5)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /home/ikjot-2605/CIMS/project/bin/rails:5)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateMembers (20210115170331)
+  [1m[35m (532.5ms)[0m  [1m[35mCREATE TABLE `members` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (2152.2ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_members_on_email` ON `members` (`email`)[0m
+  [1m[35m (2157.1ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_members_on_reset_password_token` ON `members` (`reset_password_token`)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115170331')[0m
+  [1m[36mTRANSACTION (446.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnsToMembers (20210115170950)
+  [1m[35m (611.4ms)[0m  [1m[35mALTER TABLE `members` ADD `fname` varchar(255) NOT NULL[0m
+  [1m[35m (1574.9ms)[0m  [1m[35mALTER TABLE `members` ADD `lname` varchar(255) NOT NULL[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnsToMembers (20210115170950)
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE `members` ADD `fname` varchar(255) NOT NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (703.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS `project_development`[0m
+  [1m[35m (151.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS `project_test`[0m
+  [1m[35m (169.8ms)[0m  [1m[35mCREATE DATABASE `project_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (228.8ms)[0m  [1m[35mCREATE DATABASE `project_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (4383.7ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (457.8ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateMembers (20210115170331)
+  [1m[35m (581.0ms)[0m  [1m[35mCREATE TABLE `members` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (2046.7ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_members_on_email` ON `members` (`email`)[0m
+  [1m[35m (1595.8ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_members_on_reset_password_token` ON `members` (`reset_password_token`)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115170331')[0m
+  [1m[36mTRANSACTION (90.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToMembers (20210115170950)
+  [1m[35m (603.8ms)[0m  [1m[35mALTER TABLE `members` ADD `fname` varchar(255) NOT NULL[0m
+  [1m[35m (1981.8ms)[0m  [1m[35mALTER TABLE `members` ADD `lname` varchar(255) NOT NULL[0m
+  [1m[35m (1814.9ms)[0m  [1m[35mALTER TABLE `members` ADD `phone` int[0m
+  [1m[35m (1719.1ms)[0m  [1m[35mALTER TABLE `members` ADD `active` tinyint NOT NULL[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (6.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115170950')[0m
+  [1m[36mTRANSACTION (178.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateClubs (20210115171711)
+  [1m[35m (2399.2ms)[0m  [1m[35mCREATE TABLE `clubs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115171711')[0m
+  [1m[36mTRANSACTION (200.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePositions (20210115171822)
+  [1m[35m (4441.1ms)[0m  [1m[35mCREATE TABLE `positions` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_positions_on_name` (`name`))[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115171822')[0m
+  [1m[36mTRANSACTION (1010.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeysToMembers (20210115172057)
+  [1m[35m (5.6ms)[0m  [1m[35mALTER TABLE `members` ADD CONSTRAINT `fk_rails_34b6511a43`
+FOREIGN KEY (`club_id`)
+  REFERENCES `clubs` (`id`)
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddForeignKeysToMembers (20210115172057)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddForeignKeysToMembers (20210115172057)
+  [1m[35m (395.2ms)[0m  [1m[35mALTER TABLE `members` ADD `club_id` bigint[0m
+  [1m[35m (709.2ms)[0m  [1m[35mCREATE INDEX `index_members_on_club_id` ON `members` (`club_id`)[0m
+  [1m[35m (713.9ms)[0m  [1m[35mALTER TABLE `members` ADD `position_id` bigint[0m
+  [1m[35m (1363.4ms)[0m  [1m[35mCREATE INDEX `index_members_on_position_id` ON `members` (`position_id`)[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115172057')[0m
+  [1m[36mTRANSACTION (102.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateItems (20210115172356)
+  [1m[35m (1001.1ms)[0m  [1m[35mCREATE TABLE `items` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `units` int DEFAULT 1, `clubs_id` bigint, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_items_on_clubs_id` (`clubs_id`))[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115172356')[0m
+  [1m[36mTRANSACTION (117.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20210115172702)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2021-01-15 17:45:15.560297', '2021-01-15 17:45:15.560297')[0m
+  [1m[36mTRANSACTION (72.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (3151.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS `project_development`[0m
+  [1m[35m (219.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS `project_test`[0m
+  [1m[35m (203.0ms)[0m  [1m[35mCREATE DATABASE `project_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (210.0ms)[0m  [1m[35mCREATE DATABASE `project_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (1849.6ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4114.0ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateMembers (20210115170331)
+  [1m[35m (883.3ms)[0m  [1m[35mCREATE TABLE `members` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (4087.5ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_members_on_email` ON `members` (`email`)[0m
+  [1m[35m (1547.2ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_members_on_reset_password_token` ON `members` (`reset_password_token`)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115170331')[0m
+  [1m[36mTRANSACTION (290.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToMembers (20210115170950)
+  [1m[35m (1744.4ms)[0m  [1m[35mALTER TABLE `members` ADD `fname` varchar(255) NOT NULL[0m
+  [1m[35m (688.9ms)[0m  [1m[35mALTER TABLE `members` ADD `lname` varchar(255) NOT NULL[0m
+  [1m[35m (1852.9ms)[0m  [1m[35mALTER TABLE `members` ADD `phone` int[0m
+  [1m[35m (1082.5ms)[0m  [1m[35mALTER TABLE `members` ADD `active` tinyint NOT NULL[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115170950')[0m
+  [1m[36mTRANSACTION (1158.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateClubs (20210115171711)
+  [1m[35m (1812.0ms)[0m  [1m[35mCREATE TABLE `clubs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115171711')[0m
+  [1m[36mTRANSACTION (93.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePositions (20210115171822)
+  [1m[35m (607.6ms)[0m  [1m[35mCREATE TABLE `positions` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_positions_on_name` (`name`))[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115171822')[0m
+  [1m[36mTRANSACTION (108.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeysToMembers (20210115172057)
+  [1m[35m (1464.9ms)[0m  [1m[35mALTER TABLE `members` ADD `club_id` bigint[0m
+  [1m[35m (583.5ms)[0m  [1m[35mCREATE INDEX `index_members_on_club_id` ON `members` (`club_id`)[0m
+  [1m[35m (535.3ms)[0m  [1m[35mALTER TABLE `members` ADD `position_id` bigint[0m
+  [1m[35m (1491.4ms)[0m  [1m[35mCREATE INDEX `index_members_on_position_id` ON `members` (`position_id`)[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115172057')[0m
+  [1m[36mTRANSACTION (211.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateItems (20210115172356)
+  [1m[35m (1989.0ms)[0m  [1m[35mCREATE TABLE `items` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `units` int DEFAULT 1, `clubs_id` bigint, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_items_on_clubs_id` (`clubs_id`))[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115172356')[0m
+  [1m[36mTRANSACTION (215.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20210115172702)
+  [1m[35m (3978.7ms)[0m  [1m[35mCREATE TABLE `orders` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `items_id` bigint, `requester_id` bigint, `requested_at` datetime, `approver_id` bigint, `approved_at` datetime, `deadline` datetime, `units` int, `returned` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_orders_on_items_id` (`items_id`), INDEX `index_orders_on_requester_id` (`requester_id`), INDEX `index_orders_on_approver_id` (`approver_id`))[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115172702')[0m
+  [1m[36mTRANSACTION (559.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2021-01-15 17:46:09.534673', '2021-01-15 17:46:09.534673')[0m
+  [1m[36mTRANSACTION (642.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (3788.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS `project_development`[0m
+  [1m[35m (208.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS `project_test`[0m
+  [1m[35m (163.3ms)[0m  [1m[35mCREATE DATABASE `project_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (1131.0ms)[0m  [1m[35mCREATE DATABASE `project_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (1305.1ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (451.4ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateMembers (20210115170331)
+  [1m[35m (3331.0ms)[0m  [1m[35mCREATE TABLE `members` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (1224.1ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_members_on_email` ON `members` (`email`)[0m
+  [1m[35m (587.2ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_members_on_reset_password_token` ON `members` (`reset_password_token`)[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115170331')[0m
+  [1m[36mTRANSACTION (870.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToMembers (20210115170950)
+  [1m[35m (625.1ms)[0m  [1m[35mALTER TABLE `members` ADD `fname` varchar(255) NOT NULL[0m
+  [1m[35m (514.0ms)[0m  [1m[35mALTER TABLE `members` ADD `lname` varchar(255) NOT NULL[0m
+  [1m[35m (1374.8ms)[0m  [1m[35mALTER TABLE `members` ADD `phone` int[0m
+  [1m[35m (635.7ms)[0m  [1m[35mALTER TABLE `members` ADD `active` tinyint NOT NULL[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115170950')[0m
+  [1m[36mTRANSACTION (242.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateClubs (20210115171711)
+  [1m[35m (1663.5ms)[0m  [1m[35mCREATE TABLE `clubs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115171711')[0m
+  [1m[36mTRANSACTION (234.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePositions (20210115171822)
+  [1m[35m (2029.4ms)[0m  [1m[35mCREATE TABLE `positions` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_positions_on_name` (`name`))[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115171822')[0m
+  [1m[36mTRANSACTION (834.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeysToMembers (20210115172057)
+  [1m[35m (855.9ms)[0m  [1m[35mALTER TABLE `members` ADD `club_id` bigint[0m
+  [1m[35m (1647.9ms)[0m  [1m[35mCREATE INDEX `index_members_on_club_id` ON `members` (`club_id`)[0m
+  [1m[35m (1705.9ms)[0m  [1m[35mALTER TABLE `members` ADD `position_id` bigint[0m
+  [1m[35m (1827.8ms)[0m  [1m[35mCREATE INDEX `index_members_on_position_id` ON `members` (`position_id`)[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115172057')[0m
+  [1m[36mTRANSACTION (179.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateItems (20210115172356)
+  [1m[35m (2188.8ms)[0m  [1m[35mCREATE TABLE `items` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `units` int DEFAULT 1, `club_id` bigint, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_items_on_club_id` (`club_id`))[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115172356')[0m
+  [1m[36mTRANSACTION (203.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20210115172702)
+  [1m[35m (3953.1ms)[0m  [1m[35mCREATE TABLE `orders` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `item_id` bigint, `requester_id` bigint, `requested_at` datetime, `approver_id` bigint, `approved_at` datetime, `deadline` datetime, `units` int, `returned` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_orders_on_item_id` (`item_id`), INDEX `index_orders_on_requester_id` (`requester_id`), INDEX `index_orders_on_approver_id` (`approver_id`))[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115172702')[0m
+  [1m[36mTRANSACTION (172.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2021-01-15 17:49:54.397224', '2021-01-15 17:49:54.397224')[0m
+  [1m[36mTRANSACTION (242.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mClub Create (0.4ms)[0m  [1m[32mINSERT INTO `clubs` (`name`, `created_at`, `updated_at`) VALUES ('IRIS', '2021-01-15 17:53:18.705048', '2021-01-15 17:53:18.705048')[0m
+  [1m[36mTRANSACTION (75.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mClub Load (0.9ms)[0m  [1m[34mSELECT `clubs`.* FROM `clubs` /* loading for inspect */ LIMIT 11[0m
+  [1m[36mClub Load (1.1ms)[0m  [1m[34mSELECT `clubs`.* FROM `clubs` WHERE `clubs`.`name` = 'IRIS' /* loading for inspect */ LIMIT 11[0m
+  [1m[36mClub Load (0.9ms)[0m  [1m[34mSELECT `clubs`.* FROM `clubs` WHERE `clubs`.`id` = NULL LIMIT 1[0m
+  [1m[36mClub Load (0.8ms)[0m  [1m[34mSELECT `clubs`.* FROM `clubs` WHERE `clubs`.`name` = 'IRIS' LIMIT 1[0m
