@@ -423,3 +423,97 @@ Migrating to CreateOrders (20210115172702)
   [1m[36mClub Load (1.1ms)[0m  [1m[34mSELECT `clubs`.* FROM `clubs` WHERE `clubs`.`name` = 'IRIS' /* loading for inspect */ LIMIT 11[0m
   [1m[36mClub Load (0.9ms)[0m  [1m[34mSELECT `clubs`.* FROM `clubs` WHERE `clubs`.`id` = NULL LIMIT 1[0m
   [1m[36mClub Load (0.8ms)[0m  [1m[34mSELECT `clubs`.* FROM `clubs` WHERE `clubs`.`name` = 'IRIS' LIMIT 1[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE DATABASE `project_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE DATABASE `project_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (32.7ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (36.7ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0)[0m
+  [1m[35m (15.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateMembers (20210115170331)
+  [1m[35m (34.2ms)[0m  [1m[35mCREATE TABLE `members` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (27.0ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_members_on_email` ON `members` (`email`)[0m
+  [1m[35m (30.5ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_members_on_reset_password_token` ON `members` (`reset_password_token`)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115170331')[0m
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToMembers (20210115170950)
+  [1m[35m (23.6ms)[0m  [1m[35mALTER TABLE `members` ADD `fname` varchar(255) NOT NULL[0m
+  [1m[35m (25.7ms)[0m  [1m[35mALTER TABLE `members` ADD `lname` varchar(255) NOT NULL[0m
+  [1m[35m (33.0ms)[0m  [1m[35mALTER TABLE `members` ADD `phone` int[0m
+  [1m[35m (29.9ms)[0m  [1m[35mALTER TABLE `members` ADD `active` tinyint NOT NULL[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115170950')[0m
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateClubs (20210115171711)
+  [1m[35m (30.6ms)[0m  [1m[35mCREATE TABLE `clubs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115171711')[0m
+  [1m[36mTRANSACTION (11.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePositions (20210115171822)
+  [1m[35m (39.5ms)[0m  [1m[35mCREATE TABLE `positions` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_positions_on_name` (`name`))[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115171822')[0m
+  [1m[36mTRANSACTION (10.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeysToMembers (20210115172057)
+  [1m[35m (38.2ms)[0m  [1m[35mALTER TABLE `members` ADD `club_id` bigint[0m
+  [1m[35m (36.2ms)[0m  [1m[35mCREATE INDEX `index_members_on_club_id` ON `members` (`club_id`)[0m
+  [1m[35m (30.6ms)[0m  [1m[35mALTER TABLE `members` ADD `position_id` bigint[0m
+  [1m[35m (58.3ms)[0m  [1m[35mCREATE INDEX `index_members_on_position_id` ON `members` (`position_id`)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115172057')[0m
+  [1m[36mTRANSACTION (12.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateItems (20210115172356)
+  [1m[35m (85.1ms)[0m  [1m[35mCREATE TABLE `items` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `units` int DEFAULT 1, `club_id` bigint, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_items_on_club_id` (`club_id`))[0m
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115172356')[0m
+  [1m[36mTRANSACTION (10.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20210115172702)
+  [1m[35m (143.9ms)[0m  [1m[35mCREATE TABLE `orders` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `item_id` bigint, `requester_id` bigint, `requested_at` datetime, `approver_id` bigint, `approved_at` datetime, `deadline` datetime, `units` int, `returned` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_orders_on_item_id` (`item_id`), INDEX `index_orders_on_requester_id` (`requester_id`), INDEX `index_orders_on_approver_id` (`approver_id`))[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210115172702')[0m
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2021-01-23 17:50:50.071421', '2021-01-23 17:50:50.071421')[0m
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2021-01-23 22:04:44 +0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 325)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 146.4ms | Allocations: 15980)
+Completed 200 OK in 223ms (Views: 173.9ms | ActiveRecord: 0.0ms | Allocations: 19642)
+
+
+Started GET "/members/sign_up" for 127.0.0.1 at 2021-01-23 22:05:33 +0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 222)
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 528)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 100.0ms | Allocations: 7511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 123.1ms | Allocations: 10489)
+Completed 200 OK in 218ms (Views: 137.2ms | ActiveRecord: 8.7ms | Allocations: 18929)
+
+
+Started POST "/members" for 127.0.0.1 at 2021-01-23 22:06:31 +0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "member"=>{"email"=>"ish@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMember Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM `members` WHERE `members`.`email` = BINARY 'ish@gmail.com' LIMIT 1[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.8ms | Allocations: 1016)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 103)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 27.5ms | Allocations: 2042)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 53.5ms | Allocations: 4992)
+Completed 200 OK in 1392ms (Views: 55.8ms | ActiveRecord: 13.3ms | Allocations: 19224)
+
+
