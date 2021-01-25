@@ -21,6 +21,31 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :club_id %><br />
+    <%= f.text_field :club_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :position_id %><br />
+    <%= f.text_field :position_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fname %><br />
+    <%= f.text_field :fname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lname %><br />
+    <%= f.text_field :lname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
