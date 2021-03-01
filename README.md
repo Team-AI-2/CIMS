@@ -41,4 +41,5 @@ Through our mini-project, we aim to provide such an interface that could later b
 * Database: MySQL  
 
 ## References:
+
 * [Ruby on Rails 5 Absolute Beginner Tutorial](https://www.youtube.com/watch?v=tVVQLMKCpj0)
