@@ -1,4 +1,4 @@
-# Club Inventory Management System | CIMS
+# Club Inventory Management System | CIMS 
 A Minor Project
 
 > Course Code: CS254  
