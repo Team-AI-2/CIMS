@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: one
+  requester: 
+  requested_at: 2021-03-14 01:51:43
+  approver: 
+  approved_at: 2021-03-14 01:51:43
+  deadline: 2021-03-14 01:51:43
+  returned: false
+
+two:
+  item: two
+  requester: 
+  requested_at: 2021-03-14 01:51:43
+  approver: 
+  approved_at: 2021-03-14 01:51:43
+  deadline: 2021-03-14 01:51:43
+  returned: false

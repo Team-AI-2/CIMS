@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @order.item_id %>
+</p>
+
+<p>
+  <strong>Requester:</strong>
+  <%= @order.requester %>
+</p>
+
+<p>
+  <strong>Requested at:</strong>
+  <%= @order.requested_at %>
+</p>
+
+<p>
+  <strong>Approver:</strong>
+  <%= @order.approver %>
+</p>
+
+<p>
+  <strong>Approved at:</strong>
+  <%= @order.approved_at %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @order.deadline %>
+</p>
+
+<p>
+  <strong>Returned:</strong>
+  <%= @order.returned %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

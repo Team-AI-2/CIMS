@@ -1,0 +1,40 @@
+clubs table <on delete cascade>
+.    id              int primary key
+.    name            varchar(120) not null
+.    room_name
+
+positions table
+.    id              int primary key
+.    name            varchar(120) not null unique
+
+members table <delete not allowed>
+.    id              int primary key
+.    f_name          varchar(120) not null
+.    l_name          varchar(120) not null
+.    phone           int(10) greater than 10^10
+.    club_id         int foreign key references clubs
+.    position_id     int foreign ley references positions
+.    active          tinyint enum(0,1) not null	// alternative to deleting member - to maintain reference integrity in orders table
+
+items table <on delete cascade>
+.    id              int primary key
+.    name            varchar(120) not null
+.    units           int default: 1 greater than 0
+.    club_id         int foreign key references clubs
+
+orders table
+.    id              int primary key
+.    item_id         int foreign key references items
+.    requester       int foreign key references members
+.    requested_at    datetime not null default: timestamp
+.    approver        int foreign key references members
+.    approved_at     datetime
+.    deadline        datetime not null
+.    returned        tinyint enum(0,1) not null
+
+club > members
+club > items
+item > orders
+position > members
+member > orders
+...
