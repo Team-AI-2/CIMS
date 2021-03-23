@@ -1,0 +1,44 @@
+// ishaan + ikjot + aakarshee
+APPLICATION>HTML.ERB
+    NAVBAR
+        CIMS
+        Home - user dashboard
+        Items
+        Orders
+        ---
+        My Profile
+        About us
+        Signout
+
+    Notice div
+    Footer div
+    Add more static bars
+
+// ishaan
+USER DASHBOARD
+    Club Info
+    Order History
+    Pending Requests
+    if con
+        add club
+        add users
+        edit items
+        view all orders
+
+// ikjot
+ITEMS PAGE
+    List of items
+        Place New Order
+        Get Status
+        if admin
+            edit
+            delete - fake
+            New
+
+// aakarshee
+MY ORDERS PAGE
+    Returned Orders
+        Reorder
+    Currently Issued
+    Pending Requests
+        delete

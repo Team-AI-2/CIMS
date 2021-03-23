@@ -1,0 +1,167 @@
+<% content_for :title, "My Dashboard" %>
+
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Club Information
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div class="row">
+      <div class="col-lg-4"><strong>Club Name</strong></div>
+      <div class="col-lg-8"><%= @club.name %></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4"><strong>Position</strong></div>
+      <div class="col-lg-8"><%= current_member.position.name %></div>
+    </div>
+    <% if current_member.position.id == 1 %>
+      <div class="row col-lg-12 mt-2 align-content-center">
+        <div class="btn-group" role="group">
+          <%= link_to '<i class="fa fa-check m-1" aria-hidden="true"></i> Add New Club'.html_safe, new_club_path, class: "m-1 btn btn-outline-success btn-shadow btn-wide" %>
+          <%= link_to '<i class="fa fa-pencil m-1" aria-hidden="true"></i> Edit Club Inventory'.html_safe, items_path, class: "btn m-1 btn-outline-primary btn-shadow btn-wide" %>
+          <%= link_to '<i class="fa fa-user m-1" aria-hidden="true"></i> Add New Club Member'.html_safe, members_new_member_path, class: "btn m-1 btn-outline-success btn-shadow btn-wide" %>
+          <%= link_to '<i class="fa fa-eye m-1" aria-hidden="true"></i> View all Item Orders'.html_safe, orders_path, class: "btn m-1 btn-outline-primary btn-shadow btn-wide" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Pending Order Requests
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div id="table_content">
+      <table id="pending_requests" class="table text-center table-striped table-bordered">
+        <thead>
+        <tr>
+          <th> No. </th>
+          <th> Item </th>
+          <th> Quantity </th>
+          <th> Requested At </th>
+          <th> Action </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @order_history_requested.each_with_index do |order, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= order.item.name %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.requested_at %></td>
+            <td>
+              <div role="group" class="btn-group-sm btn-group">
+                <%= link_to '<i class="fa fa-trash m-1" aria-hidden="true"></i> Delete'.html_safe, url_for(action: "destroy", id: order.id), data: {confirm: "Are you sure?"}, method: :delete, class: "btn m-1 btn-danger btn-shadow btn-wide" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Approved and Active Orders
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div id="table_content">
+      <table id="approved_requests" class="table text-center table-striped table-bordered">
+        <thead>
+        <tr>
+          <th> No. </th>
+          <th> Item </th>
+          <th> Quantity </th>
+          <th> Requested At </th>
+          <th> Approved At </th>
+          <th> Deadline </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @order_history_approved.each_with_index do |order, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= order.item.name %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.requested_at %></td>
+            <td><%= order.approved_at %></td>
+            <td><%= order.deadline %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Order History
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div id="table_content">
+      <table id="completed_requests" class="table text-center table-striped table-bordered">
+        <thead>
+        <tr>
+          <th> No. </th>
+          <th> Item </th>
+          <th> Quantity </th>
+          <th> Requested At </th>
+          <th> Approved At </th>
+          <th> Deadline </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @order_history_requested.each_with_index do |order, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= order.item.name %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.requested_at %></td>
+            <td><%= order.approved_at %></td>
+            <td><%= order.deadline %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.iris.nitk.ac.in/design_system/assets/js/vendors/form-components/toggle-switch.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#pending_requests, #approved_requests, #completed_requests").DataTable({
+            autoWidth: true,
+            dom: "ftp",
+            "oLanguage": {
+                "sSearch": "<b> Search by Item Name : </b>",
+                "sEmptyTable": "There are no Orders to show here."
+            }
+        });
+    });
+</script>

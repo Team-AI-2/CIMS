@@ -4,6 +4,7 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :position
+  belongs_to :club
   has_many :requested_items, class_name: 'Order', foreign_key: 'requester_id'
   has_many :items_approved, class_name: 'Order', foreign_key: 'approver_id'
 end
