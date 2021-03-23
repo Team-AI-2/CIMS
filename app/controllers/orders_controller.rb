@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  before_action :check_login
+  def check_login
+    redirect_to member_session_path and return unless current_member
+  end
   before_action :set_order, only: %i[ show edit update destroy ]
 
   # GET /orders or /orders.json
