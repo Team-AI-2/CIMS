@@ -24,6 +24,7 @@
             <td><%= item.club.name %></td>
             <td>
                <%= link_to '<i class="fa fa-plus" aria-hidden="true"></i>Order'.html_safe, new_order_path, class: "btn btn-primary" %>
+               <%= link_to 'Order History'.html_safe, new_order_path, class: "btn btn-primary" %>
             </td>
           </tr>
         <% end %>

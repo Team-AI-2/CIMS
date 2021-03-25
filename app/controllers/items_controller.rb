@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
-    @items = Item.all
+    @items = Item.where.not(units:0)
   end
 
   # GET /items/1 or /items/1.json
@@ -22,7 +22,10 @@ class ItemsController < ApplicationController
   # GET /items/1/edit
   def edit
   end
-
+  def item_history
+    @current_item = Item.find(params[:id])
+    @item_history = @current_item.orders
+  end  
   # POST /items or /items.json
   def create
     @item = Item.new(item_params)
