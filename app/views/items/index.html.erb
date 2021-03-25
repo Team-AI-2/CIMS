@@ -25,6 +25,7 @@
             <td>
                <%= link_to '<i class="fa fa-plus" aria-hidden="true"></i>Order'.html_safe, new_order_path, class: "btn btn-primary" %>
                <%= link_to 'Order History'.html_safe, new_order_path, class: "btn btn-primary" %>
+               <%if current_member.position.id==1%><%= link_to 'Edit Item'.html_safe, edit_item_path(item), class: "btn btn-secondary" %><%end%>
             </td>
           </tr>
         <% end %>
