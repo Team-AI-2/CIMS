@@ -21,11 +21,9 @@
             <td><%= index+1 %></td>
             <td><%= item.name %></td>
             <td><%= item.units %></td>
-            <td><%= item.club_id %></td>
+            <td><%= item.club.name %></td>
             <td>
-            <div role="group" class="btn-group-sm btn-group">
-                <%= link_to '<i class="fa fa-add m-1" aria-hidden="true"></i> Order'.html_safe, new_order_path %>
-            </div>
+               <%= link_to '<i class="fa fa-plus" aria-hidden="true"></i>Order'.html_safe, new_order_path, class: "btn btn-primary" %>
             </td>
           </tr>
         <% end %>
