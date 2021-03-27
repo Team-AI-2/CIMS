@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :items
   resources :clubs
   resources :positions
-  resources :members
   devise_for :members
   get '/members/my_dashboard', to: 'members#my_dashboard'
   get '/members/new_member', to: 'members#new_member'
