@@ -10,23 +10,26 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class = "card">
+<div class="card-body">
+  <div class="field mt-3">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name,{class: "form-control"} %>
   </div>
 
-  <div class="field">
+  <div class="field mt-3">
     <%= form.label :units %>
-    <%= form.number_field :units %>
+    <%= form.select :units,options_for_select(@quantity),{prompt:"Choose quantity"},{class: "form-control select"} %>
   </div>
 
-  <div class="field">
+  <div class="field mt-3">
     <%= form.label :club_id %>
-    <%= form.text_field :club_id %>
+    <%= form.select :club_id,options_from_collection_for_select(@clubs, "id", "name"),{prompt:"Select a club"},{class: "form-control select"} %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-3">
+    <%= form.submit "Save Changes" ,class:"btn btn-success col-lg-12" %>
   </div>
+  </div>
+</div>
 <% end %>

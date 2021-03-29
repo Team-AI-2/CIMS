@@ -17,6 +17,8 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @clubs = Club.all
+    @quantity = (1..10).to_a
   end
 
   # GET /items/1/edit
