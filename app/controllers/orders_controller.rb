@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = Order.new(item_id:params[:order][:item_id],requester: Member.find(params[:order][:requester].to_i), requested_at:params[:order][:requested_at], approver:Member.find(params[:order][:approver].to_i),approved_at: params[:order][:approved_at],deadline: params[:order][:deadline], returned:params[:order][:returned])
 
     respond_to do |format|
       if @order.save

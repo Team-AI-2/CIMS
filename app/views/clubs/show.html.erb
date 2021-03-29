@@ -1,14 +1,131 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @club.name %>
-</p>
+<h1><%=@club.name%> Information</h1>
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Club Members
+    </div>
+  </div>
 
-<p>
-  <strong>Room name:</strong>
-  <%= @club.room_name %>
-</p>
+  <div class="card-body overflow-auto">
+    <div id="table_content">
+      <table id="pending_requests" class="table text-center table-striped table-bordered">
+        <thead>
+        <tr>
+          <th> No. </th>
+          <th> Name </th>
+          <th> Position </th>
+          <th> Action </th>
+        </tr>
+        </thead>
 
-<%= link_to 'Edit', edit_club_path(@club) %> |
-<%= link_to 'Back', clubs_path %>
+        <tbody>
+        <% @all_members.each_with_index do |member, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= member.name %></td>
+            <td><%= member.position.name %></td>
+            <td>
+                <%= link_to '<i class="fa fa-trash m-1" aria-hidden="true"></i> Remove'.html_safe, url_for(action: "destroy", id: member.id), data: {confirm: "Are you sure?"}, method: :delete, class: "btn m-1 btn-danger btn-shadow btn-wide" %>
+                <%= link_to '<i class="fa fa-pencil m-1" aria-hidden="true"></i> Edit'.html_safe, url_for(action: "edit", id: member.id), class: "btn m-1 btn-primary btn-shadow btn-wide" %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Club Items
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div id="table_content">
+      <table id="pending_requests" class="table text-center table-striped table-bordered">
+        <thead>
+        <tr>
+          <th> No. </th>
+          <th> Item </th>
+          <th> Quantity </th>
+          <th> Number of Orders </th>
+          <th> Action </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @all_items.each_with_index do |item, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= item.name %></td>
+            <td><%= item.units %></td>
+            <td><%= item.orders.count %></td>
+            <td>
+                <%= link_to '<i class="fa fa-trash m-1" aria-hidden="true"></i> Remove'.html_safe, url_for(action: "destroy", id: item.id), data: {confirm: "Are you sure?"}, method: :delete, class: "btn m-1 btn-danger btn-shadow btn-wide" %>
+                <%= link_to '<i class="fa fa-pencil m-1" aria-hidden="true"></i> Edit'.html_safe, url_for(action: "edit", id: item.id), class: "btn m-1 btn-primary btn-shadow btn-wide" %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Club Orders
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div id="table_content">
+      <table id="pending_requests" class="table text-center table-striped table-bordered">
+        <thead>
+        <tr>
+          <th> No. </th>
+          <th> Item </th>
+          <th> Quantity </th>
+          <th> Requested At </th>
+          <th> Requested By </th>
+          <th> Approved At </th>
+          <th> Approved By </th>
+          <th> Returned </th>
+          <th> Action </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @all_orders.each_with_index do |order, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= order.item.name %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.requested_at %></td>
+            <td><%= order.requester.name %></td>
+            <td><%= order.approved_at %></td>
+            <td><%= order.approver.name %></td>
+            <td><%= order.returned ? "Yes" : "No" %></td>
+            <td>
+                <%if order.approver==nil %><%= link_to '<i class="fa fa-trash m-1" aria-hidden="true"></i> Delete'.html_safe, url_for(action: "destroy", id: order.id), data: {confirm: "Are you sure?"}, method: :delete, class: "btn m-1 btn-danger btn-shadow btn-wide" %><%end%>
+                <%#TODO: Add approve ability for non approved orders%>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

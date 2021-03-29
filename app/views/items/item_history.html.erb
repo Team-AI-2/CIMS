@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Item History</h1>
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Item Information
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div class="row">
+      <div class="col-lg-4"><strong>Item Name</strong></div>
+      <div class="col-lg-8"><%= @current_item.name %></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4"><strong>Quantity</strong></div>
+      <div class="col-lg-8"><%= @current_item.units %></div>
+    </div>
+  </div>
+</div>
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Orders for <%=@current_item.name%>
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div id="table_content">
+      <table id="item_history" class="table text-center table-striped table-bordered">
+        <thead>
+        <tr>
+          <th> No. </th>
+          <th> Item </th>
+          <th> Quantity </th>
+          <th> Requested At </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @item_history.each_with_index do |order, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= order.item.name %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.requested_at %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<br>
+

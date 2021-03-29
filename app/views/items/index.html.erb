@@ -21,11 +21,11 @@
             <td><%= index+1 %></td>
             <td><%= item.name %></td>
             <td><%= item.units %></td>
-            <td><%= item.club_id %></td>
+            <td><%= item.club.name %></td>
             <td>
-            <div role="group" class="btn-group-sm btn-group">
-                <%= link_to '<i class="fa fa-add m-1" aria-hidden="true"></i> Order'.html_safe, new_order_path %>
-            </div>
+               <%= link_to '<i class="fa fa-plus" aria-hidden="true"></i>Order'.html_safe, new_order_path, class: "btn btn-primary" %>
+               <%= link_to 'Order History'.html_safe, '/items/'+item.id.to_s+'/orders', class: "btn btn-primary" %>
+               <%if current_member.position.id==1%><%= link_to 'Edit Item'.html_safe, edit_item_path(item), class: "btn btn-secondary" %><%end%>
             </td>
           </tr>
         <% end %>

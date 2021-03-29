@@ -1,17 +1,16 @@
 class ClubsController < ApplicationController
   before_action :check_login
+  before_action :check_convenor, only: %i[ show edit update destroy ] 
   def check_login
     redirect_to member_session_path and return unless current_member
   end
   before_action :set_club, only: %i[ show edit update destroy ]
 
-  # GET /clubs or /clubs.json
-  def index
-    @clubs = Club.all
-  end
-
   # GET /clubs/1 or /clubs/1.json
   def show
+    @all_orders = Order.where(item_id: @club.items.pluck(:id))
+    @all_items = @club.items
+    @all_members = @club.members
   end
 
   # GET /clubs/new
@@ -69,5 +68,12 @@ class ClubsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def club_params
       params.require(:club).permit(:name, :room_name)
+    end
+
+    def check_convenor
+      if current_member.position.id!=1 
+        redirect_to root_path,alert:"You are not authorized to view this page."
+        return
+      end  
     end
 end

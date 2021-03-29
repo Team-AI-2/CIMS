@@ -20,7 +20,7 @@ class MembersController < ApplicationController
   end
 
   def new_member; end
-
+  def destroy; end
   private
 
   # Only allow a list of trusted parameters through.
