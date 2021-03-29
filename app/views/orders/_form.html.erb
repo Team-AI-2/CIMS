@@ -10,42 +10,26 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :item_id %>
-    <%= form.text_field :item_id %>
+<div class="field">
+    <%= form.label :Item %>
+   <%= form.select :item_id, options_from_collection_for_select(current_member.club.items, "id", "name") %>
   </div>
-
+  
   <div class="field">
-    <%= form.label :requester %>
-    <%= form.text_field :requester %>
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
   </div>
+  
 
-  <div class="field">
-    <%= form.label :requested_at %>
-    <%= form.datetime_select :requested_at %>
-  </div>
 
-  <div class="field">
-    <%= form.label :approver %>
-    <%= form.text_field :approver %>
-  </div>
 
-  <div class="field">
-    <%= form.label :approved_at %>
-    <%= form.datetime_select :approved_at %>
-  </div>
+ 
 
-  <div class="field">
-    <%= form.label :deadline %>
-    <%= form.datetime_select :deadline %>
-  </div>
+  
 
-  <div class="field">
-    <%= form.label :returned %>
-    <%= form.check_box :returned %>
-  </div>
+  
 
+  
   <div class="actions">
     <%= form.submit %>
   </div>

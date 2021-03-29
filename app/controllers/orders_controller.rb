@@ -7,9 +7,21 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
+   
+    @club = current_member.club
+    @order_history_approved = Order.where(requester_id: current_member.id,
+                                          returned: false)
+                                    .where.not(approved_at: nil)
+    @order_history_requested = Order.where(requester_id: current_member.id,
+                                           approved_at: nil)
+    @order_history_returned = Order.where(requester_id: current_member.id,
+                                          returned: true)
+                                   .where.not(approved_at: nil)
+    
+
   end
 
+  
   # GET /orders/1 or /orders/1.json
   def show
   end
@@ -25,7 +37,7 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    @order = Order.new(item_id:params[:order][:item_id],requester: Member.find(params[:order][:requester].to_i), requested_at:params[:order][:requested_at], approver:Member.find(params[:order][:approver].to_i),approved_at: params[:order][:approved_at],deadline: params[:order][:deadline], returned:params[:order][:returned])
+    @order = Order.new(quantity:params[:order][:quantity],item_id:params[:order][:item_id],requester: current_member, requested_at:Time.now, approver:Member.find(1),approved_at: nil,deadline: nil, returned:false)
 
     respond_to do |format|
       if @order.save
@@ -68,6 +80,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:item_id, :requester, :requested_at, :approver, :approved_at, :deadline, :returned)
+      params.require(:order).permit(:item_id, :requester, :requested_at, :approver, :approved_at, :deadline, :returned, :quantity)
     end
 end

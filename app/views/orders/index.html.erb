@@ -1,38 +1,142 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Orders</h1>
+<h1>My Orders</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Item</th>
-      <th>Requester</th>
-      <th>Requested at</th>
-      <th>Approver</th>
-      <th>Approved at</th>
-      <th>Deadline</th>
-      <th>Returned</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Pending Order Requests
+    </div>
+  </div>
 
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.item_id %></td>
-        <td><%= order.requester %></td>
-        <td><%= order.requested_at %></td>
-        <td><%= order.approver %></td>
-        <td><%= order.approved_at %></td>
-        <td><%= order.deadline %></td>
-        <td><%= order.returned %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="card-body overflow-auto">
+    <div id="table_content">
+      <table id="pending_requests" class="table text-center table-striped table-bordered">
+        <thead>
+        <tr>
+          <th> No. </th>
+          <th> Item </th>
+          <th> Quantity </th>
+          <th> Requested At </th>
+          <th> Action </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @order_history_requested.each_with_index do |order, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= order.item.name %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.requested_at %></td>
+            <td>
+              <div role="group" class="btn-group-sm btn-group">
+                <%= link_to '<i class="fa fa-trash m-1" aria-hidden="true"></i> Delete'.html_safe, url_for(action: "destroy", id: order.id), data: {confirm: "Are you sure?"}, method: :delete, class: "btn m-1 btn-danger btn-shadow btn-wide" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Approved and Active Orders
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div id="table_content">
+      <table id="approved_requests" class="table text-center table-striped table-bordered">
+        <thead>
+        <tr>
+          <th> No. </th>
+          <th> Item </th>
+          <th> Quantity </th>
+          <th> Requested At </th>
+          <th> Approved At </th>
+          <th> Deadline </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @order_history_approved.each_with_index do |order, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= order.item.name %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.requested_at %></td>
+            <td><%= order.approved_at %></td>
+            <td><%= order.deadline %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Order History
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div id="table_content">
+      <table id="completed_requests" class="table text-center table-striped table-bordered">
+        <thead>
+        <tr>
+          <th> No. </th>
+          <th> Item </th>
+          <th> Quantity </th>
+          <th> Requested At </th>
+          <th> Approved At </th>
+          <th> Deadline </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @order_history_requested.each_with_index do |order, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= order.item.name %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.requested_at %></td>
+            <td><%= order.approved_at %></td>
+            <td><%= order.deadline %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#pending_requests, #approved_requests, #completed_requests").DataTable({
+            autoWidth: true,
+            dom: "ftp",
+            "oLanguage": {
+                "sSearch": "<b> Search by Item Name : </b>",
+                "sEmptyTable": "There are no Orders to show here."
+            }
+        });
+    });
+</script>
 
 <br>
 
