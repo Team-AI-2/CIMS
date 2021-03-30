@@ -9,14 +9,8 @@ class MembersController < ApplicationController
   # GET /members/my_dashboard
   def my_dashboard
     @club = current_member.club
-    @order_history_approved = Order.where(requester_id: current_member.id,
-                                          returned: false)
-                                    .where.not(approved_at: nil)
     @order_history_requested = Order.where(requester_id: current_member.id,
                                            approved_at: nil)
-    @order_history_returned = Order.where(requester_id: current_member.id,
-                                          returned: true)
-                                   .where.not(approved_at: nil)
   end
 
   def new_member; end
