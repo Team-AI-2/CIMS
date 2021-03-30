@@ -9,6 +9,6 @@ class Member < ApplicationRecord
   has_many :items_approved, class_name: 'Order', foreign_key: 'approver_id'
   has_many :orders
   def name
-    f_name.to_s + l_name.to_s
+    f_name.to_s + " " + l_name.to_s
   end  
 end

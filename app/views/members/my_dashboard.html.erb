@@ -4,6 +4,26 @@
   <div class="card-header">
     <div class="card-header-title">
       <i class="fa fa-list mr-2"></i>
+      My Profile Information
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div class="row">
+      <div class="col-lg-4"><strong>Name</strong></div>
+      <div class="col-lg-8"><%= current_member.name %></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4"><strong>Email ID</strong></div>
+      <div class="col-lg-8"><%= current_member.email %></div>
+    </div>
+  </div>
+</div>
+
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
       Club Information
     </div>
   </div>
