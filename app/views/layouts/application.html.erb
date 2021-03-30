@@ -16,13 +16,55 @@
 
   <body>
 
-  <div class="col-lg-12">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">CIMS | Club Inventory Management System</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <% if current_member %>
+            <li class="nav-item">
+              <a class="nav-link" href="/">My Dashboard <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/clubs/<%= current_member.club.id %>">My Club <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/items">Club Inventory <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/orders">My Orders <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Logout', destroy_member_session_path, method: :delete, class: "nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Login', new_member_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Up', new_member_registration_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container mt-3 mb-3">
     <% if notice %> <p class="alert alert-success"><%= notice %></p> <% end %>
     <% if alert %> <p class="alert alert-danger"><%= alert %></p> <% end %>
   </div>
-  <div class="container">
+  <div class="container" style="margin-bottom: 8vh">
     <%= yield %>
   </div>
+  <footer class="page-footer font-small blue fixed-bottom bg-secondary text-white">
+    <div class="footer-copyright text-center py-3 text-decoration-none">
+      <a href="/about" class="text-white">About the Project</a>
+    </div>
+  </footer>
   </body>
 </html>
 
