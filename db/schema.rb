@@ -40,10 +40,8 @@ ActiveRecord::Schema.define(version: 2021_03_13_202300) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "club_id"
-    t.bigint "position_id"
-    t.index ["club_id"], name: "index_members_on_club_id"
-    t.index ["position_id"], name: "index_members_on_position_id"
+    t.integer "club_id"
+    t.integer "position_id"
   end
 
   create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
