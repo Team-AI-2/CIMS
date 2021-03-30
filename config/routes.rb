@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :members, :controllers => { :registrations => "registrations" }
   get '/members/my_dashboard', to: 'members#my_dashboard'
   get '/members/new_member', to: 'members#new_member'
-  get '/members/:id', to: 'members#destroy'
+  delete '/members/:id', to: 'members#destroy_member'
   get '/about', to: 'pages#about'
   get '/items/:id/orders', to: 'items#item_history'
   root to: 'members#my_dashboard'

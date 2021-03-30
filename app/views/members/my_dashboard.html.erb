@@ -40,9 +40,7 @@
     <% if current_member.position.id == 1 %>
       <div class="row col-lg-12 mt-2 align-content-center">
         <div class="btn-group" role="group">
-          <%= link_to '<i class="fa fa-check m-1" aria-hidden="true"></i> Add New Club'.html_safe, new_club_path, class: "m-1 btn btn-outline-success btn-shadow btn-wide" %>
-          <%= link_to '<i class="fa fa-pencil m-1" aria-hidden="true"></i> Edit Club Inventory'.html_safe, items_path, class: "btn m-1 btn-outline-primary btn-shadow btn-wide" %>
-          <%= link_to '<i class="fa fa-user m-1" aria-hidden="true"></i> Add New Club Member'.html_safe, members_new_member_path, class: "btn m-1 btn-outline-success btn-shadow btn-wide" %>
+          <%= link_to '<i class="fa fa-edit m-1" aria-hidden="true"></i> Edit Club Inventory'.html_safe, items_path, class: "btn m-1 btn-outline-success btn-shadow btn-wide" %>
           <%= link_to '<i class="fa fa-eye m-1" aria-hidden="true"></i> View all Item Orders'.html_safe, orders_path, class: "btn m-1 btn-outline-primary btn-shadow btn-wide" %>
         </div>
       </div>

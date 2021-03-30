@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Items</h1>
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Club Inventory Items
+    </div>
+  </div>
 
-<div class="card-body overflow-auto">
+  <div class="card-body overflow-auto">
     <div id="table_content">
       <table id="items" class="table text-center table-striped table-bordered">
         <thead>
@@ -23,18 +29,29 @@
             <td><%= item.units %></td>
             <td><%= item.club.name %></td>
             <td>
-               <%= link_to '<i class="fa fa-plus" aria-hidden="true"></i>Order'.html_safe, new_order_path, class: "btn btn-primary" %>
-               <%= link_to 'Order History'.html_safe, '/items/'+item.id.to_s+'/orders', class: "btn btn-primary" %>
-               <%if current_member.position.id==1%><%= link_to 'Edit Item'.html_safe, edit_item_path(item), class: "btn btn-secondary" %><%end%>
+              <%= link_to '<i class="fa fa-plus" aria-hidden="true"></i>Order'.html_safe, new_order_path, class: "btn btn-primary" %>
+              <%= link_to 'Order History'.html_safe, '/items/'+item.id.to_s+'/orders', class: "btn btn-primary" %>
+              <%if current_member.position.id==1%><%= link_to 'Edit Item'.html_safe, edit_item_path(item), class: "btn btn-secondary" %><%end%>
             </td>
           </tr>
         <% end %>
         </tbody>
       </table>
-
     </div>
   </div>
 </div>
 
-<br>
+<script>
+    $(document).ready(function () {
+        $("#items").DataTable({
+            autoWidth: true,
+            dom: "ftp",
+            "oLanguage": {
+                "sSearch": "<b> Search by Item Name : </b>",
+                "sEmptyTable": "There is nothing to show here.",
+                pageLength: 10
+            }
+        });
+    });
+</script>
 

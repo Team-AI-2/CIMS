@@ -20,7 +20,10 @@ class MembersController < ApplicationController
   end
 
   def new_member; end
-  def destroy; end
+  def destroy_member
+    Member.find(params[:id]).update(active: false)
+    redirect_to club_path(current_member.club.id)
+  end
   private
 
   # Only allow a list of trusted parameters through.

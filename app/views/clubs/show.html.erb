@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%=@club.name%> Information</h1>
 <div class="main-card mb-3 card mt-4 card-hover-shadow">
   <div class="card-header">
     <div class="card-header-title">
@@ -11,7 +10,7 @@
 
   <div class="card-body overflow-auto">
     <div id="table_content">
-      <table id="pending_requests" class="table text-center table-striped table-bordered">
+      <table id="members" class="table text-center table-striped table-bordered">
         <thead>
         <tr>
           <th> No. </th>
@@ -22,14 +21,15 @@
         </thead>
 
         <tbody>
-        <% @all_members.each_with_index do |member, index| %>
+        <% @all_members.select {|m| m.active }.select { |m| m.active }.each_with_index do |member, index| %>
           <tr>
             <td><%= index+1 %></td>
             <td><%= member.name %></td>
             <td><%= member.position.name %></td>
             <td>
-                <%= link_to '<i class="fa fa-trash m-1" aria-hidden="true"></i> Remove'.html_safe, url_for(action: "destroy", id: member.id), data: {confirm: "Are you sure?"}, method: :delete, class: "btn m-1 btn-danger btn-shadow btn-wide" %>
-                <%= link_to '<i class="fa fa-pencil m-1" aria-hidden="true"></i> Edit'.html_safe, url_for(action: "edit", id: member.id), class: "btn m-1 btn-primary btn-shadow btn-wide" %>
+              <% if member.id != current_member.id %>
+                <%= link_to '<i class="fa fa-trash m-1" aria-hidden="true"></i> Remove'.html_safe, url_for(controller: "members", action: "destroy_member", id: member.id), data: {confirm: "Are you sure?"}, method: :delete, class: "btn m-1 btn-danger btn-shadow btn-wide" %>
+              <% end %>
             </td>
           </tr>
         <% end %>
@@ -50,7 +50,7 @@
 
   <div class="card-body overflow-auto">
     <div id="table_content">
-      <table id="pending_requests" class="table text-center table-striped table-bordered">
+      <table id="items" class="table text-center table-striped table-bordered">
         <thead>
         <tr>
           <th> No. </th>
@@ -91,7 +91,7 @@
 
   <div class="card-body overflow-auto">
     <div id="table_content">
-      <table id="pending_requests" class="table text-center table-striped table-bordered">
+      <table id="orders" class="table text-center table-striped table-bordered">
         <thead>
         <tr>
           <th> No. </th>
@@ -129,3 +129,17 @@
     </div>
   </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("#members, #orders, #items").DataTable({
+            autoWidth: true,
+            dom: "ftp",
+            "oLanguage": {
+                "sSearch": "<b> Search : </b>",
+                "sEmptyTable": "There is nothing to show here.",
+                pageLength: 5
+            }
+        });
+    });
+</script>
