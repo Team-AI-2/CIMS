@@ -1,6 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Item History</h1>
 <div class="main-card mb-3 card mt-4 card-hover-shadow">
   <div class="card-header">
     <div class="card-header-title">
@@ -20,41 +17,58 @@
     </div>
   </div>
 </div>
+
 <div class="main-card mb-3 card mt-4 card-hover-shadow">
   <div class="card-header">
     <div class="card-header-title">
       <i class="fa fa-list mr-2"></i>
-      Orders for <%=@current_item.name%>
+      Item History
     </div>
   </div>
 
   <div class="card-body overflow-auto">
     <div id="table_content">
-      <table id="item_history" class="table text-center table-striped table-bordered">
+      <table id="item_history_table" class="table text-center table-striped table-bordered">
         <thead>
-        <tr>
-          <th> No. </th>
-          <th> Item </th>
-          <th> Quantity </th>
-          <th> Requested At </th>
-        </tr>
+          <tr>
+            <th> No. </th>
+            <th> Item </th>
+            <th> Quantity </th>
+            <th> Requested At </th>
+            <th> Approved At </th>
+            <th> Deadline </th>
+            <th> Returned </th>
+          </tr>
         </thead>
 
         <tbody>
-        <% @item_history.each_with_index do |order, index| %>
-          <tr>
-            <td><%= index+1 %></td>
-            <td><%= order.item.name %></td>
-            <td><%= order.quantity %></td>
-            <td><%= order.requested_at %></td>
-          </tr>
-        <% end %>
+          <% @item_history.each_with_index do |order, index| %>
+            <tr>
+              <td><%= index+1 %></td>
+              <td><%= order.item.name %></td>
+              <td><%= order.quantity %></td>
+              <td><%= order.requested_at %></td>
+              <td><%= order.approved_at %></td>
+              <td><%= order.deadline %></td>
+              <td><%= order.returned ? "Yes" : "No" %></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
-
     </div>
   </div>
 </div>
 
-<br>
-
+<script>
+    $(document).ready(function () {
+        $("#item_history_table").DataTable({
+            autoWidth: true,
+            dom: "ftp",
+            "oLanguage": {
+                "sSearch": "<b> Search : </b>",
+                "sEmptyTable": "There is nothing to show here.",
+                pageLength: 5
+            }
+        });
+    });
+</script>

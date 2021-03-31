@@ -1,32 +1,16 @@
-<%= form_with(model: item) do |form| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+<div class="card-body overflow-auto">
+  <%= form_with(model: item) do |f| %>
 
-      <ul>
-        <% item.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="mb-3">
+      <div><%= f.label :name, class: "col-form-label" %></div>
+      <div><%= f.text_field :name, class: "form-control" %></div>
     </div>
+
+    <div class="mb-3">
+      <div><%= f.label :units, class: "col-form-label" %></div>
+      <div><%= f.number_field :units, class: "form-control" %></div>
+    </div>
+
+    <%= f.submit "Submit", class: "mt-3 col-lg-12 btn btn-success p-2" %>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :units %>
-    <%= form.number_field :units %>
-  </div>
-
-  <div class="field">
-    <%= form.label :club_id %>
-    <%= form.text_field :club_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
