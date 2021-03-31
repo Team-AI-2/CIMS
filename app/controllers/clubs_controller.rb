@@ -70,6 +70,20 @@ class ClubsController < ApplicationController
       params.require(:club).permit(:name, :room_name)
     end
 
+    # params : {
+    #   club : {
+    #     name, room_name,....
+    #   }, commit: "sdsdsd"
+    # }
+
+    # request: {
+    #   metadata: {},
+    #   ....
+    #   params: {id, name, room_name},
+    #   format:
+    #   method:
+    # }
+
     def check_admin
       if current_member.is_admin? 
         redirect_to root_path,alert:"You are not authorized to view this page."

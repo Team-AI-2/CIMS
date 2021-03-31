@@ -36,12 +36,12 @@ class OrdersController < ApplicationController
 
   def edit_status
     redirect_to root_path, alert: "You are not authorised to view that page." unless current_member.is_admin?
-    if request.patch?
+    unless request.get?
       if params[:commit] == "Reject Request"
         @order.update(approver: current_member, deadline: Time.now, returned: true)
         redirect_to club_path(current_member.club), notice: "The Order Request was rejected successfully."
       else
-        @order.update(approver: current_member, deadline: params[:deadline], returned: false, approved_at: Time.current)
+        @order.update(approver: current_member, deadline: params[:order][:deadline], returned: false, approved_at: Time.current)
         redirect_to club_path(current_member.club), notice: "The Order Request was accepted successfully."
       end
     end
