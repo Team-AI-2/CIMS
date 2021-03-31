@@ -71,7 +71,7 @@
             <td>
               <% if current_member.position.name == "DB Manager" %>
                 <%= link_to '<i class="fa fa-trash m-1" aria-hidden="true"></i> Remove'.html_safe, url_for(controller: "items", action: "destroy", id: item.id), data: {confirm: "Are you sure?"}, method: :delete, class: "btn m-1 btn-danger btn-shadow btn-wide" %>
-                <%= link_to '<i class="fa fa-pencil m-1" aria-hidden="true"></i> Edit'.html_safe, url_for(controller: "items", action: "edit", id: item.id), class: "btn m-1 btn-primary btn-shadow btn-wide" %>
+                <%= link_to '<i class="fa fa-edit m-1" aria-hidden="true"></i> Edit'.html_safe, url_for(controller: "items", action: "edit", id: item.id), class: "btn m-1 btn-primary btn-shadow btn-wide" %>
               <% end %>
             </td>
           </tr>
@@ -122,7 +122,7 @@
                 <% if order.approver.id == 1 && order.requester == current_member %>
                   <%= link_to '<i class="fa fa-trash m-1" aria-hidden="true"></i> Delete'.html_safe, url_for(controller: "orders", action: "destroy", id: order.id), data: {confirm: "Are you sure?"}, method: :delete, class: "btn m-1 btn-danger btn-shadow btn-wide" %>
                 <% elsif current_member.position.name == "Convenor" %>
-                  <%= link_to '<i class="fa fa-eye m-1" aria-hidden="true"></i> Approve / Delete'.html_safe, url_for(controller: "orders", action: "status", id: order.id), class: "btn m-1 btn-danger btn-shadow btn-wide" %>
+                  <%= link_to '<i class="fa fa-edit m-1" aria-hidden="true"></i> Approve / Delete'.html_safe, url_for(controller: "orders", action: "status", id: order.id), class: "btn m-1 btn-danger btn-shadow btn-wide" %>
                 <% end %>
             </td>
           </tr>

@@ -1,0 +1,57 @@
+<% if @order.errors.any? %>
+  <div class="alert alert-danger pt-3 pb-3 mb-0">
+    <strong>The following errors prevented the action</strong>
+    <ul class="mb-0">
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-edit mr-2"></i>
+      Order Acceptance / Rejection Form
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <%= form_with(model: @order) do |f| %>
+
+      <div class="mb-3">
+        <div><%= f.label :item, class: "col-form-label" %></div>
+        <div><%= f.text_field :item, value: @order.item.name, class: "form-control", disabled: true %></div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-lg-6">
+          <div><%= f.label :quantity, class: "col-form-label" %></div>
+          <div><%= f.number_field :quantity, class: "form-control", disabled: true %></div>
+        </div>
+        <div class="mb-3 col-lg-6">
+          <div><%= f.label :available_quantity, class: "col-form-label" %></div>
+          <div><%= f.number_field :available_quantity, placeholder: @order.item.units, class: "form-control", disabled: true %></div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div><%= f.label :deadline, class: "col-form-label" %></div>
+        <div><%= f.datetime_field :deadline, class: "date-time-picker form-control", id: "deadline" %></div>
+      </div>
+
+      <%= f.submit "Accept Request", class: "mt-3 col-lg-12 btn btn-success p-2" %>
+      <%= f.submit "Reject Request", class: "mt-3 col-lg-12 btn btn-danger p-2" %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+    $(function() {
+        $("#deadline").datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>

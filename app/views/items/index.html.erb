@@ -4,6 +4,27 @@
   <div class="card-header">
     <div class="card-header-title">
       <i class="fa fa-list mr-2"></i>
+      Add a New Item
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div class="row">
+      <div class="col-lg-4"><strong>Club Name</strong></div>
+      <div class="col-lg-8"><%= current_member.club.name %></div>
+    </div>
+    <div class="row col-lg-12 mt-2 align-content-center">
+      <div class="btn-group" role="group">
+        <%= link_to '<i class="fa fa-plus m-1" aria-hidden="true"></i> New Item Addition'.html_safe, new_item_path, class: "btn m-1 btn-outline-success btn-shadow btn-wide" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
       Club Inventory Items
     </div>
   </div>
@@ -30,8 +51,8 @@
             <td><%= item.club.name %></td>
             <td>
               <%= link_to 'Order History'.html_safe, '/items/'+item.id.to_s+'/orders', class: "btn btn-primary" %>
-              <%if current_member.position.id==1%>
-                <%= link_to 'Edit Item'.html_safe, url_for(controller: "items", action: "destroy", id: item.id), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-secondary" %>
+              <% if current_member.position.name == "Convenor" %>
+                <%= link_to 'Delete Item'.html_safe, url_for(controller: "items", action: "destroy", id: item.id), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-danger" %>
                 <%= link_to 'Edit Item'.html_safe, edit_item_path(item), class: "btn btn-secondary" %>
               <%end%>
             </td>

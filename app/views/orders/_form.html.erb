@@ -1,36 +1,43 @@
-<%= form_with(model: order) do |form| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-      <ul>
-        <% order.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-<div class="field">
-    <%= form.label :Item %>
-   <%= form.select :item_id, options_from_collection_for_select(current_member.club.items, "id", "name") %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
-  </div>
-  
-
-
-
- 
-
-  
-
-  
-
-  
-  <div class="actions">
-    <%= form.submit %>
+<% if order.errors.any? %>
+  <div class="alert alert-danger pt-3 pb-3 mb-0">
+    <strong>The following errors prevented the action</strong>
+    <ul class="mb-0">
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
+
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-edit mr-2"></i>
+      New Order Form
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <%= form_with(model: order) do |f| %>
+
+      <div class="mb-3">
+        <div><%= f.label :item, class: "col-form-label" %></div>
+        <div><%= f.select :item_id, options_from_collection_for_select(current_member.club.items, "id", "name"), prompt: "Select an Item", class: "form-control select2_single col-lg-12" %></div>
+      </div>
+
+      <div class="mb-3">
+        <div><%= f.label :quantity, class: "col-form-label" %></div>
+        <div><%= f.number_field :quantity, class: "form-control" %></div>
+      </div>
+
+      <%= f.submit "Submit", class: "mt-3 col-lg-12 btn btn-success p-2" %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#order_item_id').select2();
+        $(".select2").css("width", "100%");
+    });
+</script>

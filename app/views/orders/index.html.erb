@@ -1,4 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Create a New Order Request
+    </div>
+  </div>
+
+  <div class="card-body overflow-auto">
+    <div class="row">
+      <div class="col-lg-4"><strong>Club Name</strong></div>
+      <div class="col-lg-8"><%= @club.name %></div>
+    </div>
+    <div class="row col-lg-12 mt-2 align-content-center">
+      <div class="btn-group" role="group">
+        <%= link_to '<i class="fa fa-plus m-1" aria-hidden="true"></i> New Order Request'.html_safe, new_order_path, class: "btn m-1 btn-outline-success btn-shadow btn-wide" %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="main-card mb-3 card mt-4 card-hover-shadow">
   <div class="card-header">
@@ -86,7 +105,7 @@
   <div class="card-header">
     <div class="card-header-title">
       <i class="fa fa-list mr-2"></i>
-      Order History
+      Other Order History
     </div>
   </div>
 
