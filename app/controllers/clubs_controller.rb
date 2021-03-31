@@ -1,6 +1,6 @@
 class ClubsController < ApplicationController
   before_action :check_login
-  before_action :check_admir, only: %i[ show edit update destroy ] 
+  before_action :check_admin, only: %i[ show edit update destroy ] 
   def check_login
     redirect_to member_session_path and return unless current_member
   end
