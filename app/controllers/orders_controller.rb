@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
   end
 
   def edit_status
-    # redirect_to root_path, alert: "You are not authorised to view that page." unless ["Convenor"].include?(current_member.position.name)
+    redirect_to root_path, alert: "You are not authorised to view that page." unless current_member.is_admin?
     if request.patch?
       if params[:commit] == "Reject Request"
         @order.update(approver: current_member, deadline: Time.now, returned: true)
@@ -72,7 +72,7 @@ class OrdersController < ApplicationController
 
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
-    # redirect_to root_path, alert: "You are not authorised to view that page." unless ["Convenor"].include?(current_member.position.name)
+    redirect_to root_path, alert: "You are not authorised to view that page." unless current_member.is_admin?
     unless request.get?
       if params[:commit] == "Reject Request"
         @order.update(approver: current_member, deadline: Time.now, returned: true)

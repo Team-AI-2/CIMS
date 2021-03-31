@@ -118,7 +118,7 @@
           <th> Item </th>
           <th> Quantity </th>
           <th> Requested At </th>
-          <th> Approved At </th>
+          <th> Rejection Status </th>
           <th> Deadline </th>
         </tr>
         </thead>
@@ -130,7 +130,7 @@
             <td><%= order.item.name %></td>
             <td><%= order.quantity %></td>
             <td><%= order.requested_at %></td>
-            <td><%= order.approved_at %></td>
+            <td><%= order.approved_at.nil? && order.returned==true ? "Rejected" : "Not Rejected"  %></td>
             <td><%= order.deadline %></td>
           </tr>
         <% end %>

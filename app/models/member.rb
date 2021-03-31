@@ -11,4 +11,7 @@ class Member < ApplicationRecord
   def name
     f_name.to_s + " " + l_name.to_s
   end  
+  def is_admin?
+    ["Convenor","DB Manager"].include?(position.name)
+  end  
 end

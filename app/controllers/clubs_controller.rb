@@ -1,6 +1,6 @@
 class ClubsController < ApplicationController
   before_action :check_login
-  before_action :check_convenor, only: %i[ show edit update destroy ] 
+  before_action :check_admir, only: %i[ show edit update destroy ] 
   def check_login
     redirect_to member_session_path and return unless current_member
   end
@@ -70,8 +70,8 @@ class ClubsController < ApplicationController
       params.require(:club).permit(:name, :room_name)
     end
 
-    def check_convenor
-      if current_member.position.id!=1 
+    def check_admin
+      if current_member.is_admin? 
         redirect_to root_path,alert:"You are not authorized to view this page."
         return
       end  
