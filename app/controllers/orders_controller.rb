@@ -61,6 +61,9 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        #it may become negative to simulate real life scenarios
+        @item = @order.item
+        @item.update(units:@item.units-@order.quantity)
         format.html { redirect_to orders_path, notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @order }
       else
