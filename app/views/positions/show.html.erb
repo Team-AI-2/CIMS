@@ -1,9 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="main-card mb-3 card mt-4 card-hover-shadow">
+  <div class="card-header">
+    <div class="card-header-title">
+      <i class="fa fa-list mr-2"></i>
+      Postion Information
+    </div>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @position.name %>
-</p>
-
-<%= link_to 'Edit', edit_position_path(@position) %> |
-<%= link_to 'Back', positions_path %>
+  <div class="card-body overflow-auto">
+    <div class="row">
+      <div class="col-lg-4"><strong>Position Name</strong></div>
+      <div class="col-lg-8"><%= @position.name %></div>
+    </div>
+    <div class="row col-lg-12 mt-2 align-content-center">
+      <div class="btn-group" role="group">
+        <%= link_to '<i class="fa fa-edit m-1" aria-hidden="true"></i> Edit Position'.html_safe, edit_position_path(@position), class: "btn m-1 btn-outline-primary btn-shadow btn-wide" %>
+        <%= link_to '<i class="fa fa-trash m-1" aria-hidden="true"></i> Destroy Position'.html_safe, positions_path(id: @position.id, method: :delete), data: {confirm: "Are you sure? This will destroy all associated members and their information as well."}, class: "btn m-1 btn-outline-danger btn-shadow btn-wide" %>
+      </div>
+    </div>
+  </div>
+</div>
