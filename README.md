@@ -1,5 +1,5 @@
 # Club Inventory Management System | CIMS 
-A Minor Project
+A Minor Project!
 
 > Course Code: CS254  
 > Course Title: DBMS LAB  
